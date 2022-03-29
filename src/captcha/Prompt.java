@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class Prompt {
 
-	public String answer;
+	public static String answer;
 
 	public Prompt() {
 		this.answer = "This is a CAPTcha";

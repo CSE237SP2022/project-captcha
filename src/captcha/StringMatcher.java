@@ -1,34 +1,17 @@
 package captcha;
+import captcha.Prompt;
+import captcha.UserInput;
 
 public class StringMatcher {
 
-	public String answer; 
-	public String userInput; 
+	public static int answerPTR = 0;
+	public static int userInputPTR = 0;  
 	
-	public int answerPTR = 0;
-	public int userInputPTR = 0;  
-	
-	public void setAnswer(String answer) {
-		this.answer = answer; 
-	}
-	
-	public void setUserInput(String userInput) {
-		this.userInput = userInput;
-	}
-	
-	public String getAnswer() {
-		return answer; 
-	}
-	
-	public String getUserInput() {
-		return userInput; 
-	}
-	
-	public boolean checkStrings() { // What should the arguments be here? 
+	public static boolean checkStrings() { // What should the arguments be here? 
 		
-		while(answerPTR < answer.length() && userInputPTR < userInput.length()) { 
+		while(answerPTR < Prompt.answer.length() && userInputPTR < UserInput.userInput.length()) { 
 			
-			if(answer.charAt(answerPTR) != userInput.charAt(userInputPTR)) {
+			if(Prompt.answer.charAt(answerPTR) != UserInput.userInput.charAt(userInputPTR)) {
 				return false; 
 			}
 			
@@ -38,6 +21,16 @@ public class StringMatcher {
 		}
 		
 		return true; 
+	}
+	
+	public static void main(String[] args) {
+		Prompt myPrompt = new Prompt(); 
+		myPrompt.render(); 
+		UserInput myUserInput = new UserInput(); 
+		myUserInput.promptUser(); 
+		StringMatcher myStringMatcher = new StringMatcher();
+		myStringMatcher.checkStrings(); 
+		System.out.println("Result: " + checkStrings()); 
 	}
 	
 	
