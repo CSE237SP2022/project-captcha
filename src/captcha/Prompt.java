@@ -36,10 +36,4 @@ public class Prompt {
 	    StdDraw.text(0.2, 0.5, answer);
 
 	}
-
-	public static void main(String[] args) {
-		Prompt newprompt = new Prompt();
-		newprompt.render();
-	}
-
 }
