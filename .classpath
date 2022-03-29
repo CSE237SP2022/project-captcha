@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/johnsspencer/Downloads/stdlib-package (1).jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/git/project-captcha/lib/stdlib-package.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

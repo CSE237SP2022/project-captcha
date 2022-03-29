@@ -9,9 +9,9 @@ public class Prompt {
 	public static String answer;
 
 	public Prompt() {
-		this.answer = "This is a CAPTcha";
+		Prompt.answer = "This is a CAPTcha";
 	}
-	
+
 	public String getAnswer() {
 		return answer;
 	}
@@ -29,11 +29,11 @@ public class Prompt {
 		 */
 
 	}
-	
+
 	public void render() {
 		// randomize();
-	    StdDraw.setPenColor(Color.BLACK);
-	    StdDraw.text(0.2, 0.5, answer);
+		StdDraw.setPenColor(Color.BLACK);
+		StdDraw.text(0.2, 0.5, answer);
 
 	}
 }
