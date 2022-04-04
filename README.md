@@ -5,9 +5,9 @@ What user stories were completed this iteration?
 What user stories do you intend to complete next iteration?
 - We intend to distort the text in the captcha to make it more difficult to transcribe. Also we intend to randomize the text outputs to the user.
 Is there anything that you implemented but doesn't currently work?
-No
+- No
 What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
-Here is the script to run our program: 
-command 1 : javac -cp lib/stdlib-package.jar -d bin
-command 2: java -cp "bin:lib/stdlib-package.jar" captcha.Main_Class
+<p> Here is the script to run our program: </p>
+<p>command 1 : javac -cp lib/stdlib-package.jar -d bin</p>
+<p>command 2: java -cp "bin:lib/stdlib-package.jar" captcha.Main_Class</p>
 
