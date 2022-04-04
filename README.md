@@ -7,5 +7,7 @@ What user stories do you intend to complete next iteration?
 Is there anything that you implemented but doesn't currently work?
 No
 What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
-We have not created a script at this moment in time.
+Here is the script to run our program: 
+command 1 : javac -cp lib/stdlib-package.jar -d bin
+command 2: java -cp "bin:lib/stdlib-package.jar" captcha.Main_Class
 
