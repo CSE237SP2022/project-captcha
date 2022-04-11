@@ -33,9 +33,11 @@ class CaptchaTest {
 	}
 	
 	@Test
-	void testCaptcha() {	
+	void testCaptcha() {
+		Prompt user = new Prompt();
 		myUserInput.promptUser();
-		assertEquals("This is a CAPTcha", myUserInput.getUserInput());
+		//Checks that user input matches the captcha
+		assertEquals(user.getAnswer(), myUserInput.getUserInput());
 	}
 //	@Test
 //	void test() {
