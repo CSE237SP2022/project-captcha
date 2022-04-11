@@ -21,7 +21,8 @@ class CaptchaTest {
 	@Test
 	void testPromptGetAnswer() {
 		Prompt user = new Prompt();
-		assertEquals("This is a CAPTcha", user.getAnswer());
+		//Checks for invalid characters in the randomized string
+		assertFalse(user.getAnswer().matches(".*[`~!@#$%^&*()_-+=[]\"{}|;':,./<>?].*"));
 	}
 	
 	@Test

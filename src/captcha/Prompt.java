@@ -16,9 +16,9 @@ public class Prompt {
 		return answer;
 	}
 
-	public void randomize() {
+	public static void randomize() {
 
-		String word_bank = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		String word_bank = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		
 		int answer_length = (int) (Math.random() * (12 - 6)) + 6;
 		
@@ -29,7 +29,6 @@ public class Prompt {
 		}
 		
 		StringBuilder new_answer = new StringBuilder(base_answer);
-        
 		
 		for(int i = 0; i < answer_length ; i++) {
 		    int random = (int) Math.floor(Math.random() * word_bank.length());
