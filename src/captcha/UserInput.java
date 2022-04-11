@@ -14,7 +14,6 @@ public class UserInput {
 
 	public void promptUser() {
 		
-		System.out.println("SOMETHINGGGG");
 		Prompt prompt_object = new Prompt();
 		prompt_object.render();
 		Scanner myObj = new Scanner(System.in); // Create a Scanner object
