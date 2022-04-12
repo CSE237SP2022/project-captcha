@@ -20,6 +20,7 @@ public class Prompt {
 
 		String word_bank = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		
+		
 		int answer_length = (int) (Math.random() * (12 - 6)) + 6;
 		
 		String base_answer = "";
