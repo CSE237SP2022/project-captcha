@@ -12,36 +12,58 @@ import captcha.UserInput;
 class CaptchaTest {
 
 	private UserInput myUserInput;
-
-	@BeforeEach
-	void setup() {
+	private Prompt user;
+	@Test
+	void testStringMatcher() {
 		myUserInput = new UserInput();
-	}
-	
-	@Test
-	void testPromptGetAnswer() {
-		Prompt user = new Prompt();
-		//Checks for invalid characters in the randomized string
-		assertFalse(user.getAnswer().matches(".*[`~!@#$%^&*()_-+=[]\"{}|;':,./<>?].*"));
-	}
-	
-	@Test
-	void testCheckStrings() {
 		myUserInput.promptUser();
 		StringMatcher myStringMatcher = new StringMatcher();
 		assertEquals(true, myStringMatcher.checkStrings());
 	}
 	
+	@BeforeEach
+	void setup() {
+		myUserInput = new UserInput();
+		user = new Prompt();
+	}
+	
 	@Test
-	void testCaptcha() {
-		Prompt user = new Prompt();
+	void testPromptGetAnswer() {
+		assertEquals(user.getAnswer(),Prompt.answer);
+	}
+	
+	@Test
+	void testPromptRandomize() {
+		String string1 = user.getAnswer();
+		user.randomize();
+		String string2 = user.getAnswer();
+		assertFalse(string1.equals(string2));
+	}
+	
+	@Test
+	void testUserInputPromptUser() {
 		myUserInput.promptUser();
-		//Checks that user input matches the captcha
+		String string1 = "";
+		assertFalse(string1.equals(myUserInput.getUserInput()));
+	}
+	
+	@Test
+	void testGetUserInput() {
+		myUserInput.promptUser();
+		assertEquals(myUserInput.getUserInput(), myUserInput.userInput);
+	}
+	
+	@Test
+	void testUserInputCheck() {
+		myUserInput.promptUser();
 		assertEquals(user.getAnswer(), myUserInput.getUserInput());
 	}
-//	@Test
-//	void test() {
-//		fail("Not yet implemented");
-//	}
 
+
+	
+	
+	
+
+	
 }
+
