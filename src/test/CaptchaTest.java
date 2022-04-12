@@ -28,7 +28,7 @@ class CaptchaTest {
 	@Test
 	void testCheckStrings() {
 		myUserInput.promptUser();
-		StringMatcher myStringMatcher = new StringMatcher();	
+		StringMatcher myStringMatcher = new StringMatcher();
 		assertEquals(true, myStringMatcher.checkStrings());
 	}
 	
