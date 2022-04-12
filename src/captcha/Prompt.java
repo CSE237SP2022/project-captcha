@@ -36,7 +36,6 @@ public class Prompt {
 		}
 		
 		Prompt.answer = new_answer.toString();	
-
 	}
 
 	public void render() {
