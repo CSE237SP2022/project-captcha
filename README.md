@@ -4,7 +4,7 @@
   the user is prompted again until the input is correct.
 <p><strong>What user stories do you intend to complete next iteration?</strong></p>
 -We intend to distort the text in the captcha further, make it so that the user has to complete a certain number of captchas in a row to pass (with leveling difficulties), and possibly add images. 
-<p>Is there anything that you implemented but doesn't currently work?</p>
+<p><strong>Is there anything that you implemented but doesn't currently work?</strong></p>
 - Please look at the note at the bottom
 <p><strong>What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!) </strong></p>
 <p>command 1 : javac -cp lib/stdlib-package.jar -d bin src/captcha/*.java </p>
