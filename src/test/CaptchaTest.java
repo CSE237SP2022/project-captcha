@@ -2,12 +2,16 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.Font;
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import captcha.Prompt;
 import captcha.StringMatcher;
 import captcha.UserInput;
+import captcha.SpecialCharacters;
 
 class CaptchaTest {
 
@@ -59,7 +63,17 @@ class CaptchaTest {
 		assertEquals(user.getAnswer(), myUserInput.getUserInput());
 	}
 
-
+	@Test
+	void testDuplicateOfTwoInstances() {
+		String s1 = user.getAnswer();
+		SpecialCharacters testSpecialCharacters = new SpecialCharacters(s1.length());
+		//first time call the randomizer
+		ArrayList<Font> test1 = testSpecialCharacters.randomizer();
+		ArrayList<Font> test2 = testSpecialCharacters.randomizer();
+		for(int i = 0; i < test1.size(); i++) {
+			assertFalse(test1.get(i).equals(test2.get(i)));
+		}
+	}
 	
 	
 	
