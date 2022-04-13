@@ -1,7 +1,8 @@
 package captcha;
 
 import edu.princeton.cs.introcs.StdDraw;
-
+import java.awt.Font;
+import java.util.ArrayList;
 import java.awt.*;
 
 public class Prompt {
@@ -20,6 +21,7 @@ public class Prompt {
 
 		String word_bank = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		
+		
 		int answer_length = (int) (Math.random() * (12 - 6)) + 6;
 		
 		String base_answer = "";
@@ -36,14 +38,25 @@ public class Prompt {
 		}
 		
 		Prompt.answer = new_answer.toString();	
-
 	}
 
 	public void render() {
 		randomize();
+		Font myFont = new Font("TimesNewRoman", Font.BOLD, 20); 
 		StdDraw.clear();
 		StdDraw.setPenColor(Color.BLACK);
-		StdDraw.text(0.2, 0.8, answer);
+		StdDraw.setFont(myFont);
+		System.out.println(answer); 
+		SpecialCharacters myChars = new SpecialCharacters(answer.length()); 
+		ArrayList<Font> myArray = myChars.randomizer(); 
+		for(int i = 0; i < myArray.size(); ++i) {
+			StdDraw.setFont(myArray.get(i));
+			StdDraw.text(0.2 + 0.05*i, 0.8, Character.toString(answer.charAt(i)));
+		}
+		// StdDraw.text(0.2, 0.8, Character.toString(answer.charAt(0)));
+//		StdDraw.text(0.2, 0.8, answer); 
+		System.out.println(answer); 
 
 	}
+	
 }
