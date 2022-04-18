@@ -2,14 +2,24 @@ package captcha;
 
 public class StringMatcher {
 
-	public static int answerPTR = 0;
-	public static int userInputPTR = 0;
+	private int answerPTR = 0;
+	private int userInputPTR = 0;
+	private String userInput = "";
+	private String answer = "";
+	
+	
+	public StringMatcher(String userInput, String answer) {
+		// TODO Auto-generated constructor stub
+		this.answer = answer;
+		this.userInput = userInput;
+	}
+
 
 	public boolean checkStrings() { // What should the arguments be here?
 
-		while (answerPTR < Prompt.answer.length() && userInputPTR < UserInput.userInput.length()) {
+		while (answerPTR < answer.length() && userInputPTR < userInput.length()) {
 
-			if (Prompt.answer.charAt(answerPTR) != UserInput.userInput.charAt(userInputPTR)) {
+			if (answer.charAt(answerPTR) != userInput.charAt(userInputPTR)) {
 				System.out.println("Your input did not match. Please try again.");
 				return false;
 			}

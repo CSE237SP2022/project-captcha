@@ -6,10 +6,12 @@ import edu.princeton.cs.introcs.StdDraw;
 import captcha.Prompt;
 
 public class UserInput {
-	public static String userInput;
-
+	private String userInput;
+	private String answer;
+	
 	public UserInput() {
-		UserInput.userInput = "";
+		this.userInput = "";
+		this.answer = "";
 	}
 
 	public void promptUser() {
@@ -20,12 +22,13 @@ public class UserInput {
 		System.out.println("Type your input here");
 		setUserInput(myObj.nextLine()); // Read user input
 
-		check();
+		answer = prompt_object.getAnswer();
+		check(prompt_object.getAnswer());
 		
 	}
 
-	public void check() {
-		StringMatcher myStringMatcher = new StringMatcher();
+	private void check(String answer) {
+		StringMatcher myStringMatcher = new StringMatcher(userInput, answer);
 		if (myStringMatcher.checkStrings() == true) {
 			System.out.println("Your input was correct. Good job!");
 			return;
@@ -33,12 +36,20 @@ public class UserInput {
 		promptUser();
 	}
 
-	public static String getUserInput() {
+	public String getUserInput() {
 		return userInput;
 	}
 	
-	public static void setUserInput(String value) {
+	public void setUserInput(String value) {
 		userInput = value;
+	}
+	
+	public String getAnswer() {
+		return answer;
+	}
+	
+	public void setAnswer(String value) {
+		answer = value;
 	}
 	
 

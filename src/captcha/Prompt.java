@@ -7,17 +7,17 @@ import java.awt.*;
 
 public class Prompt {
 
-	public static String answer;
+	private String answer;
 
 	public Prompt() {
-		Prompt.answer = "";
+		this.answer = "";
 	}
 
 	public String getAnswer() {	
 		return answer;
 	}
 
-	public static void randomize() {
+	public void randomize() {
 
 		String word_bank = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		
@@ -37,7 +37,7 @@ public class Prompt {
 			new_answer.setCharAt(i, word_bank.charAt(random));
 		}
 		
-		Prompt.answer = new_answer.toString();	
+		answer = new_answer.toString();	
 	}
 
 	public void render() {

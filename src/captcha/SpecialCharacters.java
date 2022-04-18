@@ -11,7 +11,7 @@ public class SpecialCharacters {
 	FontSize mySize = FontSize.Small; 
 	private int stringLen = 0; 
 	
-	public enum FontType { 
+	private enum FontType { 
 		TimesNewRoman, 
 		ChalkBoard, 
 		LucidaHandwriting,
@@ -25,15 +25,15 @@ public class SpecialCharacters {
 		ExtraLarge // 48 
 	}
 	
-	public static FontType getRandomFontType() {
+	public FontType getRandomFontType() {
 		return FontType.values()[new Random().nextInt(FontType.values().length)];
 	}
 	
-	public static FontSize getRandomFontSize() {
+	public FontSize getRandomFontSize() {
 		return FontSize.values()[new Random().nextInt(FontSize.values().length)];
 	}
 	
-	public static String assignStringValue(FontType t) {
+	private String assignStringValue(FontType t) {
 		if(t == FontType.TimesNewRoman) {
 			return "TimesNewRoman"; 
 		}
@@ -48,7 +48,7 @@ public class SpecialCharacters {
 		}
 	}
 	
-	public static int assignNumber(FontSize f) {
+	private int assignNumber(FontSize f) {
 		if(f == FontSize.Small) {
 			return 12; 
 		}
