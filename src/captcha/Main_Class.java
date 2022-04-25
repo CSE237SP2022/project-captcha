@@ -5,7 +5,7 @@ public class Main_Class {
 	public static void main(String[] args) {
 		int difficulty=1;
 		
-		while(difficulty < 3){
+		while(difficulty <= 3){
 			UserInput myUserInput = new UserInput(difficulty);
 			boolean advance = myUserInput.promptUser();
 			if(advance == true) {
@@ -14,6 +14,7 @@ public class Main_Class {
 			else {
 				difficulty = 1;
 			}
+			System.out.println("difficulty:"+ difficulty);
 		}
 	}
 }

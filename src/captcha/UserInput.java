@@ -51,6 +51,15 @@ public class UserInput {
 	public void setUserInput(String value) {
 		userInput = value;
 	}
+	public String getAnswer() {
+		return answer;
+	}
+	
+	public void setAnswer(String value) {
+		answer = value;
+	}
+	
+
 	
 
 }
