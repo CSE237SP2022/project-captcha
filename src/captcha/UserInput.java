@@ -2,7 +2,6 @@ package captcha;
 
 import java.util.Scanner; // Import the Scanner class
 import java.io.*;
-import edu.princeton.cs.introcs.StdDraw;
 import captcha.Prompt;
 
 public class UserInput {
