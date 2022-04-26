@@ -19,7 +19,7 @@ class CaptchaTest {
 	private Prompt user;
 	@Test
 	void testStringMatcher() {
-		myUserInput = new UserInput();
+		myUserInput = new UserInput(1);
 		myUserInput.promptUser();
 		StringMatcher myStringMatcher = new StringMatcher(myUserInput.getUserInput(), myUserInput.getAnswer());
 		assertEquals(true, myStringMatcher.checkStrings());
@@ -27,8 +27,8 @@ class CaptchaTest {
 	
 	@BeforeEach
 	void setup() {
-		myUserInput = new UserInput();
-		user = new Prompt();
+		myUserInput = new UserInput(1);
+		user = new Prompt(1);
 	}
 	
 //	@Test
@@ -80,4 +80,3 @@ class CaptchaTest {
 
 	
 }
-

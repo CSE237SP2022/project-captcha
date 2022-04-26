@@ -9,7 +9,6 @@ public class StringMatcher {
 	
 	
 	public StringMatcher(String userInput, String answer) {
-		// TODO Auto-generated constructor stub
 		this.answer = answer;
 		this.userInput = userInput;
 	}

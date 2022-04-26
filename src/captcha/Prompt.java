@@ -8,9 +8,10 @@ import java.awt.*;
 public class Prompt {
 
 	private String answer;
-
-	public Prompt() {
+	private int difficulty;
+	public Prompt(int difficulty) {
 		this.answer = "";
+		this.difficulty = difficulty;
 	}
 
 	public String getAnswer() {	
