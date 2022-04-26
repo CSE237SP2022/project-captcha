@@ -4,6 +4,7 @@ import edu.princeton.cs.introcs.StdDraw;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.awt.*;
+import captcha.SpecialCharacters;
 
 public class Prompt {
 
