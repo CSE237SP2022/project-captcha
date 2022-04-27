@@ -12,16 +12,19 @@ import captcha.Prompt;
 import captcha.StringMatcher;
 import captcha.UserInput;
 import captcha.SpecialCharacters;
+import captcha.Play;
 
 class CaptchaTest {
 
 	private UserInput myUserInput;
 	private Prompt user;
-	private boolean advance;
+	private Play testPlay;
+	private StringMatcher testWrongInput;
+	private StringMatcher testRightInput;
 	@Test
 	void testStringMatcher() {
 		myUserInput = new UserInput(1);
-		advance = myUserInput.promptUser();
+		myUserInput.promptUser();
 		StringMatcher myStringMatcher = new StringMatcher(myUserInput.getUserInput(), myUserInput.getAnswer());
 		assertEquals(true, myStringMatcher.checkStrings());
 	}
@@ -30,12 +33,10 @@ class CaptchaTest {
 	void setup() {
 		myUserInput = new UserInput(1);
 		user = new Prompt(1);
+		testPlay = new Play();
+		testWrongInput = new StringMatcher("aaa", "bbb");
+		testRightInput = new StringMatcher("aaa", "aaa");
 	}
-	
-//	@Test
-//	void testPromptGetAnswer() {
-//		assertEquals(user.getAnswer(),Prompt.answer);
-//	}
 	
 	@Test
 	void testPromptRandomize() {
@@ -52,16 +53,10 @@ class CaptchaTest {
 		assertFalse(string1.equals(myUserInput.getUserInput()));
 	}
 	
-//	@Test
-//	void testGetUserInput() {
-//		myUserInput.promptUser();
-//		assertEquals(myUserInput.getUserInput(), myUserInput.userInput);
-//	}
-	
 	@Test
 	void testUserInputCheck() {
 		myUserInput.promptUser();
-		assertEquals(user.getAnswer(), myUserInput.getUserInput());
+		assertFalse(user.getAnswer().equals(myUserInput.getUserInput()));
 	}
 
 	@Test
@@ -76,21 +71,56 @@ class CaptchaTest {
 		}
 	}
 	
-//	// class contains difficulty: prompt and UserInput
-//	@Test
-//	void testDifficultyInPrompt() {
-//		int difficulty_prompt = user.getDifficulty();
-//		// check if it is equals to 1 at the beginning
-//		assertEquals(difficulty_prompt, 1);
-//		boolean advance_first = myUserInput.IsGetFirstStage();
-//		if(advance_first) {
-//			assertEquals(user.getDifficulty(),2);
-//		}
-//		else {
-//			assertEquals(user)
-//		}
-//	}
+	@Test
+	void testPlay() {
+		testPlay.advance();
+		System.out.println("getDifficulty(): " + testPlay.getDifficulty());
+		assertTrue(testPlay.getDifficulty() < 5 && testPlay.getDifficulty() > 0);
+		if (testPlay.getfirstLevel() && !testPlay.getthirdLevel()) {
+			assertEquals(testPlay.getDifficulty(), 1);
+			assertEquals(testPlay.getisFailed(), false);
+			if (testPlay.getsecondLevel()) {
+				assertEquals(testPlay.getDifficulty(), 2);
+				assertEquals(testPlay.getisFailed(), false);
+				if (testPlay.getthirdLevel()) {
+					assertEquals(testPlay.getDifficulty(), 3);
+					assertEquals(testPlay.getisFailed(), false);
+				}
+				else {
+					assertEquals(testPlay.getDifficulty(), 1);
+					assertEquals(testPlay.getisFailed(), true);			
+				}
+			}
+			else {
+				assertEquals(testPlay.getDifficulty(), 1);
+				assertEquals(testPlay.getisFailed(), true);			
+			}
+		}
+		else if (testPlay.getfirstLevel() && testPlay.getthirdLevel()) {
+			// at the end, the difficulty was increased to 4 to break the while loop
+			assertEquals(testPlay.getDifficulty(), 4);
+			assertEquals(testPlay.getisFailed(), false);
+		}
+		else {
+			assertEquals(testPlay.getDifficulty(), 1);
+			assertEquals(testPlay.getisFailed(), true);			
+		}
+	}
 	
-
+	@Test
+	void testGetDifficultyinPrompt() {
+		assertEquals(user.getDifficulty(), 1);
+	}
 	
+	@Test
+	void testCheckString() {
+		assertEquals(testRightInput.checkStrings(), true);
+		assertEquals(testWrongInput.checkStrings(), false);
+	}
+	
+	@Test
+	void testGetterandSetterinUserInput() {
+		myUserInput.setAnswer("hello");
+		assertEquals("hello", myUserInput.getAnswer());
+	}
 }
