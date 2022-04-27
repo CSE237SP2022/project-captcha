@@ -14,15 +14,23 @@ public class Prompt {
 		this.answer = "";
 		this.difficulty = difficulty;
 	}
-
+	/**
+	 * getAnswer: gets the answer
+	 * @return String answer
+	 */
 	public String getAnswer() {	
 		return answer;
 	}
-	
+	/**
+	 * getDifficulty: gets the difficulty level
+	 * @return int difficulty
+	 */
 	public int getDifficulty() {
 		return difficulty;
 	}
-
+	/**
+	 * randomize: calculates the random integer values of the string length and characters of the captcha string based on the difficulty level
+	 */
 	public void randomize() {
 
 		String word_bank = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -52,7 +60,9 @@ public class Prompt {
 		
 		answer = new_answer.toString();	
 	}
-
+	/**
+	 * render: draws the random shapes and special characters in the captcha, as well as randomizes the rotation of each character depending on difficulty level
+	 */
 	public void render() {	
 		randomize();
 		StdDraw.clear();
@@ -75,7 +85,6 @@ public class Prompt {
 				if(flip > .5) {
 					rotation = Math.random() * 60;
 				}
-				
 				else {
 					rotation = (Math.random() * (360 - 290)) + 290;
 				}
@@ -98,7 +107,6 @@ public class Prompt {
 				StdDraw.text(0.2 + 0.05*i, 0.5, Character.toString(answer.charAt(i)));
 			}			
 		}
-		System.out.println(answer); 
 	}
 	
 }

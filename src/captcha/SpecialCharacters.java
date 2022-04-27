@@ -12,6 +12,10 @@ public class SpecialCharacters {
 	FontSize mySize = FontSize.Small; 
 	private int stringLen = 0; 
 	
+	public SpecialCharacters(int stringLen) {
+		this.stringLen = stringLen;
+	}
+	
 	private enum FontType { 
 		TimesNewRoman, 
 		ChalkBoard, 
@@ -20,20 +24,30 @@ public class SpecialCharacters {
 	}
 	
 	enum FontSize { 
-		Small, // 12 
-		Medium, // 16 
-		Large, // 24 
-		ExtraLarge // 48 
+		Small, 
+		Medium, 
+		Large, 
+		ExtraLarge  
 	}
-	
+	/**
+	 * getRandomFontType: gets the random font type
+	 * @return FontType
+	 */
 	public FontType getRandomFontType() {
 		return FontType.values()[new Random().nextInt(FontType.values().length)];
 	}
-	
+	/**
+	 * getRandomFontSize: gets the random font size 
+	 * @return FontSize
+	 */
 	public FontSize getRandomFontSize() {
 		return FontSize.values()[new Random().nextInt(FontSize.values().length)];
 	}
-	
+	/**
+	 * assignStringValue: takes in a FontType t and assigns it to the the string value of the font type
+	 * @param t
+	 * @return String
+	 */
 	private String assignStringValue(FontType t) {
 		if(t == FontType.TimesNewRoman) {
 			return "TimesNewRoman"; 
@@ -48,7 +62,11 @@ public class SpecialCharacters {
 			return "Braggadocio"; 
 		}
 	}
-	
+	/**
+	 * assignNumber: takes in a FontSize f and assigns it to the numerical value of the font size
+	 * @param f
+	 * @return int 
+	 */
 	private int assignNumber(FontSize f) {
 		if(f == FontSize.Small) {
 			return 14; 
@@ -63,11 +81,10 @@ public class SpecialCharacters {
 			return 52; 
 		}
 	}
-	
-	public SpecialCharacters(int stringLen) {
-		this.stringLen = stringLen;
-	}
-	
+	/**
+	 * randomizer: randomizes the font type and size of a character and stores it into an arraylist of type Font
+	 * @return ArrayList<Font> fontArray
+	 */
 	public ArrayList<Font> randomizer() {
 		ArrayList<Font> fontArray = new ArrayList<Font>();
 		for(int i = 0; i < stringLen; ++i) {

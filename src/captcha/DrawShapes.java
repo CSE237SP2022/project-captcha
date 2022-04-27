@@ -63,11 +63,19 @@ public class DrawShapes {
 
 	}
 	
-
+	/**
+	 * Sizes: an enumeration of sizes for the captcha characters
+	 * @return enum
+	 *
+	 */
 	private enum Sizes {
 		Small, Medium, Large
 	}
-
+	/**
+	 * assignShapeSize: takes in a Size s and assigns each shape its corresponding size
+	 * @param s
+	 * @return double 
+	 */
 	private double assignShapeSize(Sizes s) {
 		if (s == Sizes.Small) {
 			return setSizeOfShape(smallLowerBound, smallUpperBound); // play around with these bounds
@@ -77,30 +85,48 @@ public class DrawShapes {
 			return setSizeOfShape(largeLowerBound, largeUpperBound); // play around with these bounds
 		}
 	}
-	
+	/**
+	 * getRandomColor: generates a random Color 
+	 * @return Color 
+	 */
 	private Color getRandomColor() {
 		int randomIdx = (int) (Math.random()*7); 
 		return myColors[randomIdx]; 
 	}
-
-	private Sizes setRandomSize() { // This method selects a random size from the Sizes enumeration
+	/**
+	 * setRandomSize: selects a random size from the Sizes enumeration
+	 * @return Sizes
+	 */
+	private Sizes setRandomSize() { 
 		return Sizes.values()[new Random().nextInt(Sizes.values().length)];
 	}
-
-	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-	public double setSizeOfShape(double lowerBound, double upperBound) { // This method sets the size of the shape given an
-																	// upper and lower bound, which is unique for each
-																	// Sizes enumeration
+	/**
+	 * setSizeOfShape: sets the size of the shape given an upper and lower bound, which is unique for each
+	 * @param lowerBound
+	 * @param upperBound
+	 * @return double 
+	 */
+	// Citation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+	public double setSizeOfShape(double lowerBound, double upperBound) { 
 		return Math.random() * (upperBound - lowerBound) + lowerBound;
 	}
 
 	// should there be a method to assign the x and y coordinate, so they are not
 	// too far from one another and take up the whole screen?
-	public double setXLocation(double lowerBound, double upperBound) { // This method sets the x coordinate of a shape, given
-																	// the bounds of screen
+	/**
+	 * setXLocation: sets the x coordinate of a shape, given the bounds of screen
+	 * @param lowerBound
+	 * @param upperBound
+	 * @return double
+	 */
+	public double setXLocation(double lowerBound, double upperBound) { 
 		return Math.random() * (upperBound - lowerBound) + lowerBound;
 	}
-
+	/**
+	 * setYLocation: takes in a double location value x and sets a random y location value
+	 * @param x
+	 * @return double
+	 */
 	public double setYLocation(double x) {
 		double randomChoice = Math.random();
 		if (randomChoice < 0.5) {
@@ -108,7 +134,9 @@ public class DrawShapes {
 		}
 		return x + randomChoice;
 	}
-
+	/**
+	 * render: draws the randomized shapes using the set locations and sizes
+	 */
 	public void render() {
 		int count = 0;
 		while (count < 100) {

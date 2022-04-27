@@ -13,21 +13,22 @@ public class StringMatcher {
 		this.userInput = userInput;
 	}
 
-
-	public boolean checkStrings() { // What should the arguments be here?
+	/**
+	 * checkStrings: compares the correct string and the user inputed string to determine whether the input string is correct
+	 * @return boolean 
+	 */
+	public boolean checkStrings() {
 
 		while (answerPTR < answer.length() && userInputPTR < userInput.length()) {
 
 			if (answer.charAt(answerPTR) != userInput.charAt(userInputPTR)) {
-				System.out.println("Your input did not match. Please try again.");
+				System.out.println("Your input did not match.");
 				return false;
 			}
-
 			++answerPTR;
 			++userInputPTR;
-
 		}
-		// System.out.println("Your input was correct. Good job!");
+		
 		return true;
 	}
 
