@@ -7,33 +7,41 @@ import captcha.Prompt;
 
 public class UserInput {
 	private String userInput;
+	private int difficulty;
 	private String answer;
 	
-	public UserInput() {
+	public UserInput(int difficulty) {
 		this.userInput = "";
 		this.answer = "";
+		this.difficulty = difficulty;
 	}
 
-	public void promptUser() {
+	public boolean promptUser() {
 		
-		Prompt prompt_object = new Prompt();
+		Prompt prompt_object = new Prompt(difficulty);
 		prompt_object.render();
 		Scanner myObj = new Scanner(System.in); // Create a Scanner object
 		System.out.println("Type your input here");
 		setUserInput(myObj.nextLine()); // Read user input
-
 		answer = prompt_object.getAnswer();
-		check(prompt_object.getAnswer());
+		
+		return check(answer);
 		
 	}
 
-	private void check(String answer) {
+	private boolean check(String answer) {
+		
 		StringMatcher myStringMatcher = new StringMatcher(userInput, answer);
 		if (myStringMatcher.checkStrings() == true) {
 			System.out.println("Your input was correct. Good job!");
-			return;
+			difficulty++;
+			return true;
 		}
-		promptUser();
+		else {
+			return false;
+			//promptUser();
+		}
+		
 	}
 
 	public String getUserInput() {
@@ -43,7 +51,6 @@ public class UserInput {
 	public void setUserInput(String value) {
 		userInput = value;
 	}
-	
 	public String getAnswer() {
 		return answer;
 	}
@@ -51,6 +58,8 @@ public class UserInput {
 	public void setAnswer(String value) {
 		answer = value;
 	}
+	
+
 	
 
 }
