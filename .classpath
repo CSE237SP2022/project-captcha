@@ -6,8 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/sonye/Documents/GitHub/project-captcha/lib/stdlib-package.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sonye/.p2/pool/plugins/org.junit.jupiter.api_5.8.1.v20211018-1956.jar">
+	<classpathentry kind="lib" path="C:/Users/quank/git/project-captcha/lib/stdlib-package.jar"/>
+	<classpathentry kind="lib" path="C:/Users/quank/Desktop/org.junit.jupiter.api_5.8.1.v20211018-1956.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="http://junit.org/junit5/docs/current/api/"/>
 		</attributes>

@@ -37,6 +37,7 @@ public class Play {
 
 	public void advance() {
 		while(difficulty <= 3){
+			System.out.println("Difficulty in advance: " + difficulty);
 			UserInput myUserInput = new UserInput(difficulty);
 			boolean advance = myUserInput.promptUser();
 			if(advance == true) {
@@ -56,7 +57,6 @@ public class Play {
 				isFailed = true;
 				difficulty = 1;
 			}
-			System.out.println("difficulty:"+ difficulty);
 		}
 	}
 }
