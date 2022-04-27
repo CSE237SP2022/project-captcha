@@ -37,12 +37,12 @@ public class DrawShapes {
 		this.semiMajorAxis = 0; 
 		this.semiMinorAxis = 0; 
 		
-		this.smallLowerBound = 0; 
-		this.smallUpperBound = 0.1; 
-		this.mediumLowerBound = 0.2; 
-		this.mediumUpperBound = 0.3; 
-		this.largeLowerBound = 0.4; 
-		this.largeUpperBound = 0.5; 
+		this.smallLowerBound = 0.01; 
+		this.smallUpperBound = 0.05; 
+		this.mediumLowerBound = 0.10; 
+		this.mediumUpperBound = 0.15; 
+		this.largeLowerBound = 0.20; 
+		this.largeUpperBound = 0.25; 
 		
 		this.lowerBoundOfScreenX = 0;
 		this.upperBoundOfScreenX = 1; 
