@@ -14,6 +14,10 @@ public class UserInput {
 		this.answer = "";
 		this.difficulty = difficulty;
 	}
+	
+	public int getDifficulty() {
+		return difficulty;
+	}
 
 	public boolean promptUser() {
 		

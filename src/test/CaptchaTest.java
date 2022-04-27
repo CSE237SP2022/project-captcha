@@ -17,10 +17,11 @@ class CaptchaTest {
 
 	private UserInput myUserInput;
 	private Prompt user;
+	private boolean advance;
 	@Test
 	void testStringMatcher() {
 		myUserInput = new UserInput(1);
-		myUserInput.promptUser();
+		advance = myUserInput.promptUser();
 		StringMatcher myStringMatcher = new StringMatcher(myUserInput.getUserInput(), myUserInput.getAnswer());
 		assertEquals(true, myStringMatcher.checkStrings());
 	}
@@ -75,7 +76,20 @@ class CaptchaTest {
 		}
 	}
 	
-	
+//	// class contains difficulty: prompt and UserInput
+//	@Test
+//	void testDifficultyInPrompt() {
+//		int difficulty_prompt = user.getDifficulty();
+//		// check if it is equals to 1 at the beginning
+//		assertEquals(difficulty_prompt, 1);
+//		boolean advance_first = myUserInput.IsGetFirstStage();
+//		if(advance_first) {
+//			assertEquals(user.getDifficulty(),2);
+//		}
+//		else {
+//			assertEquals(user)
+//		}
+//	}
 	
 
 	
