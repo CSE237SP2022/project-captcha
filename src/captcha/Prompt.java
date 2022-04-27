@@ -21,9 +21,16 @@ public class Prompt {
 	public void randomize() {
 
 		String word_bank = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			
+		int answer_length = (int) (Math.random() * (9 - 6)) + 6;
 		
+		if(difficulty == 2) {
+			answer_length = (int) (Math.random() * (12 - 9)) + 12;
+		}
 		
-		int answer_length = (int) (Math.random() * (12 - 6)) + 6;
+		if(difficulty == 3) {
+			answer_length = (int) (Math.random() * (15 - 12)) + 12;
+		}
 		
 		String base_answer = "";
 		
@@ -41,26 +48,52 @@ public class Prompt {
 		answer = new_answer.toString();	
 	}
 
-	public void render() {
+	public void render() {	
 		randomize();
-		Font myFont = new Font("TimesNewRoman", Font.BOLD, 20); 
 		StdDraw.clear();
-		DrawShapes ds = new DrawShapes(); 
-		ds.render(); 
+		if(difficulty == 3) {
+			DrawShapes shapes = new DrawShapes();
+			shapes.render();
+		}
+		Font myFont = new Font("TimesNewRoman", Font.BOLD, 20); 
+	
 		StdDraw.setPenColor(Color.BLACK);
 		StdDraw.setFont(myFont);
-		System.out.println(answer); 
 		SpecialCharacters myChars = new SpecialCharacters(answer.length()); 
 		ArrayList<Font> myArray = myChars.randomizer(); 
+		
 		for(int i = 0; i < myArray.size(); ++i) {
 			StdDraw.setFont(myArray.get(i));
-			StdDraw.text(0.2 + 0.05*i, 0.8, Character.toString(answer.charAt(i)));
+			if(difficulty == 3) {
+				double flip = Math.random();
+				double rotation = 0;
+				if(flip > .5) {
+					rotation = Math.random() * 60;
+				}
+				
+				else {
+					rotation = (Math.random() * (360 - 290)) + 290;
+				}
+				StdDraw.text(0.05 + 0.052*i, 0.5, Character.toString(answer.charAt(i)), rotation);
+			}
+			else if(difficulty == 2) {
+				double flip = Math.random();
+				double rotation = 0;
+				if(flip > .5) {
+					rotation = Math.random() * 20;
+				}
+				
+				else {
+					rotation = (Math.random() * (360 - 340)) + 340;
+				}
+				
+				StdDraw.text(0.1 + 0.045*i, 0.5, Character.toString(answer.charAt(i)), rotation);
+			}
+			else {
+				StdDraw.text(0.2 + 0.05*i, 0.5, Character.toString(answer.charAt(i)));
+			}			
 		}
-		// StdDraw.text(0.2, 0.8, Character.toString(answer.charAt(0)));
-//		StdDraw.text(0.2, 0.8, answer); 
 		System.out.println(answer); 
-//		StdDraw.filledCircle(0.25, 0.5, 0.25);
-
 	}
 	
 }

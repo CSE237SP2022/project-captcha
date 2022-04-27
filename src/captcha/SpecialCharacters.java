@@ -50,16 +50,16 @@ public class SpecialCharacters {
 	
 	private int assignNumber(FontSize f) {
 		if(f == FontSize.Small) {
-			return 12; 
+			return 14; 
 		}
 		else if(f == FontSize.Medium) {
-			return 16; 
+			return 22; 
 		}
 		else if(f == FontSize.Large) {
-			return 24; 
+			return 30; 
 		}
 		else {
-			return 48; 
+			return 52; 
 		}
 	}
 	
