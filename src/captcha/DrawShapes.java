@@ -83,7 +83,7 @@ public class DrawShapes {
 		return myColors[randomIdx]; 
 	}
 
-	public Sizes setRandomSize() { // This method selects a random size from the Sizes enumeration
+	private Sizes setRandomSize() { // This method selects a random size from the Sizes enumeration
 		return Sizes.values()[new Random().nextInt(Sizes.values().length)];
 	}
 

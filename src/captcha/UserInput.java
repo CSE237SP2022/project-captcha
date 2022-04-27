@@ -2,7 +2,6 @@ package captcha;
 
 import java.util.Scanner; // Import the Scanner class
 import java.io.*;
-import edu.princeton.cs.introcs.StdDraw;
 import captcha.Prompt;
 
 public class UserInput {
@@ -14,6 +13,10 @@ public class UserInput {
 		this.userInput = "";
 		this.answer = "";
 		this.difficulty = difficulty;
+	}
+	
+	public int getDifficulty() {
+		return difficulty;
 	}
 
 	public boolean promptUser() {

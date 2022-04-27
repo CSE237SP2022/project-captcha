@@ -1,3 +1,4 @@
+
 package captcha;
 
 import edu.princeton.cs.introcs.StdDraw;
