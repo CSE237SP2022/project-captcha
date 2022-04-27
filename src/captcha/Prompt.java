@@ -46,6 +46,8 @@ public class Prompt {
 		randomize();
 		Font myFont = new Font("TimesNewRoman", Font.BOLD, 20); 
 		StdDraw.clear();
+		DrawShapes ds = new DrawShapes(); 
+		ds.render(); 
 		StdDraw.setPenColor(Color.BLACK);
 		StdDraw.setFont(myFont);
 		System.out.println(answer); 
@@ -58,6 +60,7 @@ public class Prompt {
 		// StdDraw.text(0.2, 0.8, Character.toString(answer.charAt(0)));
 //		StdDraw.text(0.2, 0.8, answer); 
 		System.out.println(answer); 
+//		StdDraw.filledCircle(0.25, 0.5, 0.25);
 
 	}
 	
