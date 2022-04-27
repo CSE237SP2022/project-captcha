@@ -18,6 +18,10 @@ public class Prompt {
 	public String getAnswer() {	
 		return answer;
 	}
+	
+	public int getDifficulty() {
+		return difficulty;
+	}
 
 	public void randomize() {
 
